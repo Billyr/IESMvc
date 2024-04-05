@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Institucion>
+@*@{
+        Layout = null;
+    }*@
+
+@section Styles {
+    <link rel="stylesheet" href="~/lib/dataTables/datatables.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        #tbl_wrapper {
+            font-family: 'Open Sans';
+            font-size: small;
+        }
+    </style>
+
+}
+
+
+<table id="tbl">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InstitucionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstitucionID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+    <script src="~/lib/DataTables/datatables.js"></script>
+
+    <script>
+
+        $(function (e) {
+
+            $('#tbl').DataTable({
+                lengthMenu: [
+                    [4, -1],
+                    [4, 'All']
+                ],
+                language: {
+                    search: 'Buscar'
+                }
+            });
+
+        });
+
+    </script>
+}

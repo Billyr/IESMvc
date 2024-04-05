@@ -7,4 +7,17 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Institucion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Institucion\" />
+    <Folder Include="wwwroot\lib\DataTables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\DataTables\" />
+  </ItemGroup>
 </Project>
