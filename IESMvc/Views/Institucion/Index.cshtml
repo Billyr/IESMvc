@@ -5,19 +5,32 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/lib/dataTables/datatables.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="~/font-awesome/css/all.css" rel="stylesheet" />
 
     <style>
         #tbl_wrapper {
             font-family: 'Open Sans';
-            font-size: small;
+            font-size: 16px;
+            font-weight: 300;
         }
+
+        .fa-trash-can,
+        .fa-brands {
+            color: tomato;
+            font-size: 18px;
+        }
+
     </style>
 
 }
 
+<p>
+
+</p>
 
 <table id="tbl">
     <thead>
@@ -31,6 +44,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -45,6 +59,11 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td align="center">
+                    <a title="Delete" href="/" onclick='return confirm("Seguro quieres borrar?");'>
+                        <i class="fa-regular fa-trash-can"></i>
+                    </a>
                 </td>
             </tr>
         }
@@ -66,7 +85,8 @@
                 ],
                 language: {
                     search: 'Buscar'
-                }
+                },
+                sorts: [0, 1, 2]
             });
 
         });
