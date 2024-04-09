@@ -23,7 +23,6 @@
             color: tomato;
             font-size: 18px;
         }
-
     </style>
 
 }
@@ -72,24 +71,23 @@
 
 
 @section Scripts {
-    <script src="~/lib/DataTables/datatables.js"></script>
+<script src="~/lib/DataTables/datatables.js"></script>
+<script src="~/jquery-loading-overlay/loadingoverlay.js"></script>
 
-    <script>
-
-        $(function (e) {
-
-            $('#tbl').DataTable({
-                lengthMenu: [
-                    [4, -1],
-                    [4, 'All']
-                ],
-                language: {
-                    search: 'Buscar'
-                },
-                sorts: [0, 1, 2]
-            });
-
+<script>
+    $(function (e) {
+        $('#tbl').LoadingOverlay('show');
+        $('#tbl').DataTable({
+            lengthMenu: [
+                [4, -1],
+                [4, 'All']
+            ],
+            language: {
+                search: 'Buscar'
+            },
+            sorts: [0, 1, 2]
         });
-
-    </script>
+        $('#tbl').LoadingOverlay('hide');
+    });
+</script>
 }

@@ -5,6 +5,10 @@
     {
       "library": "font-awesome@6.5.2",
       "destination": "wwwroot/font-awesome/"
+    },
+    {
+      "library": "jquery-loading-overlay@2.1.7",
+      "destination": "wwwroot/jquery-loading-overlay/"
     }
   ]
 }

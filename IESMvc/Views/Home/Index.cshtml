@@ -4,5 +4,67 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <button id="btn" class="btn btn-outline-secondary">Call Ajax</button>
+    <p id="message"></p>
 </div>
 
+@section Scripts {
+    <script src="~/jquery-loading-overlay/loadingoverlay.js"></script>
+
+    <script>
+        $(function (e) {
+
+            $('#btn').on('click', function (e) {
+                e.preventDefault();
+
+                //fetch('/Home/Ajax')
+                //    .then(res => {
+                //        //console.log(res);
+                //        if (res.ok)
+                //            return res.json();
+                //        else
+                //            return Promise.reject(res);
+                //    })
+                //    .then(data => {
+                //        console.log('Info: ', data);
+                //    })
+                //    .catch(err => {
+                //        console.log('Errores: ', err)
+                //        return err.json();
+                //    })
+                //    .then(data => {
+                //        console.log('Info failed: ', data);
+                //    })
+
+                //$.ajax({
+                //    url: '/Home/Ajax',
+                //    method: 'get',
+                //    type: 'json',
+                //    success: function(data, x, y, z) {
+                //        console.log(data);
+                //        console.log(x);
+                //        console.log(y);
+                //        console.log(z);
+                //    },
+                //    error: function(err, x, y, z) {
+                //        if (err.status === 400)
+                //            $("#message").html(err.statusText + " " + err.status + "<br>" + JSON.stringify(err.responseJSON, null,2) );
+                //        console.log(err);
+                //        console.log(x);
+                //        console.log(y);
+                //        console.log(z);
+                //    },
+                //})
+            });
+
+            $(document).ajaxStart(function () {
+                $.LoadingOverlay("show");
+            });
+
+            $(document).ajaxStop(function () {
+                $.LoadingOverlay("hide");
+            });
+
+        });
+    </script>
+}

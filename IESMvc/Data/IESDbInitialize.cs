@@ -6,6 +6,7 @@ namespace IESMvc.Data
     {
         public static void Initialize(IESContext context)
         {
+
             context.Database.EnsureCreated();
             
             if (context.Departamentos.Any())
